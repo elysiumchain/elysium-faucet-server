@@ -3,6 +3,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 
+import "reflect-metadata";
+
 import indexRouter from "./routes/index";
 
 dotenv.config();
@@ -19,7 +21,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.use('/', indexRouter);
+app.use("/", indexRouter);
 
 const server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);

@@ -1,12 +1,18 @@
-import express, { Request, Response, NextFunction } from 'express'
-import dotenv from 'dotenv'
-const router = express.Router()
-dotenv.config()
+import express, { Request, Response, NextFunction } from "express"
+import dotenv from "dotenv"
+import FaucetController from "../controllers/faucet";
 
-export default router.get('/', (req: Request, res: Response, next: NextFunction) => {
+dotenv.config();
+
+const router = express.Router()
+
+router.get("/", (req: Request, res: Response, next: NextFunction) => {
     res.status(200).json({
-        message: 'success',
+        message: "success",
         version: process.env.npm_package_version,
-        data: 'ok'
+        data: "ok"
     })
-})
+});
+router.use(FaucetController);
+
+export default router;
