@@ -5,6 +5,6 @@ export default {
     port: process.env.PORT,
     env: process.env.NODE_ENV,
     google: {
-        recapcha: process.env.recapcha
+        recapcha: process.env.RECAPTCHA_SECRETKEY
     }
 }
